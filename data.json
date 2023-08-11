@@ -1,0 +1,148 @@
+{
+    "Sheet1": [
+      {
+        "id": 1,
+        "date": 44616,
+        "transactionType": "CR",
+        "amount": 1050000
+      },      
+      {
+        "id": 2,
+        "date": 44671,
+        "transactionType": "DR",
+        "amount": -22232
+      },
+      {
+        "id": 3,
+        "date": 44694,
+        "transactionType": "DR",
+        "amount": -13875
+      },
+      {
+        "id": 4,
+        "date": 44648,
+        "transactionType": "CR",
+        "amount": 450000
+      },
+      {
+        "id": 5,
+        "date": 44681,
+        "transactionType": "CR",
+        "amount": 300000
+      },
+      {
+        "id": 6,
+        "date": 44716,
+        "transactionType": "DR",
+        "amount": -33736
+      },
+      {
+        "id": 7,
+        "date": 44748,
+        "transactionType": "DR",
+        "amount": -15225
+      },
+      {
+        "id": 8,
+        "date": 44770,
+        "transactionType": "CR",
+        "amount": 300000
+      },
+      {
+        "id": 9,
+        "date": 44777,
+        "transactionType": "DR",
+        "amount": -17763
+      },
+      {
+        "id": 10,
+        "date": 44809,
+        "transactionType": "DR",
+        "amount": -17763
+      },
+      {
+        "id": 11,
+        "date": 44845,
+        "transactionType": "DR",
+        "amount": -19153
+      },
+      {
+        "id": 12,
+        "date": 44863,
+        "transactionType": "CR",
+        "amount": 500000
+      },
+      {
+        "id": 13,
+        "date": 44869,
+        "transactionType": "DR",
+        "amount": -24159
+      },
+      {
+        "id": 14,
+        "date": 44902,
+        "transactionType": "DR",
+        "amount": -24159
+      },
+      {
+        "id": 15,
+        "date": 44926,
+        "transactionType": "CR",
+        "amount": 100000
+      },
+      {
+        "id": 16,
+        "date": 44942,
+        "transactionType": "DR",
+        "amount": -23466
+      },
+      {
+        "id": 17,
+        "date": 44965,
+        "transactionType": "DR",
+        "amount": -25875
+      },
+      {
+        "id": 18,
+        "date": 44993,
+        "transactionType": "DR",
+        "amount": -25875
+      },
+      {
+        "id": 19,
+        "date": 45022,
+        "transactionType": "CR",
+        "amount": 300000
+      },
+      {
+        "id": 20,
+        "date": 45024,
+        "transactionType": "DR",
+        "amount": -36967.34
+      },
+      {
+        "id": 21,
+        "date": 45054,
+        "transactionType": "DR",
+        "amount": -35046
+      },
+      {
+        "id": 22,
+        "date": 45086,
+        "transactionType": "DR",
+        "amount": -35046
+      },
+      {
+        "id": 23,
+        "date": 45115,
+        "transactionType": "DR",
+        "amount": -35046
+      },
+      {
+        "id": 24,
+        "date": 45146,
+        "transactionType": "DR",
+        "amount": -38595
+      }
+    ]
+  }
