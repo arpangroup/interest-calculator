@@ -90,6 +90,9 @@ function isLastStatementOfMonth (currStatement, nextStatement) {
 
     const nextStatementMonthStr = nextStatement ? nextStatement.date.split("-")[1] : 'NAN';
     const nextStatementMonth =  MONTHS[nextStatementMonthStr];
+    if(currStatementMonth == 12 && nextStatementMonth == 1) {
+        return true;
+    }
 
 
     console.log("currSTatementMonthSTr: ", currStatementMonthStr, currStatementMonth, currStatement.amount);
@@ -233,7 +236,7 @@ function generateTableData(statements){
     } else if (transactionType === 'DR') {
         ACCOUNT_BALANCE -= Math.abs(amount);
     } else if (transactionType === 'INTEREST') {
-        const yearyInterest =  calculateInterest(ACCOUNT_BALANCE, 10);
+        const yearyInterest =  calculateInterest(ACCOUNT_BALANCE, 11.75);
         const dailyInterest = yearyInterest / 360;
         const days = 30;
         interestOfTheMonth = dailyInterest * days;
