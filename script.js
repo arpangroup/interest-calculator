@@ -218,8 +218,12 @@ function generateTableData(statements){
  } 
 
  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    // return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    //return x.toLocaleString('en-IN');
+    return x.toString().split('.')[0].length > 3 ? x.toString().substring(0,x.toString().split('.')[0].length-3).replace(/\B(?=(\d{2})+(?!\d))/g, ",") + "," + x.toString().substring(x.toString().split('.')[0].length-3): x.toString();
 }
+
+
 
  function doPayment(props) {
     const {id, date, transactionType, amount} = props;

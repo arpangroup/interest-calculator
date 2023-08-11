@@ -8,27 +8,27 @@
     },
     {
       "id": 2,
-      "date": 44671,
-      "transactionType": "DR",
-      "amount": -22232
-    },
-    {
-      "id": 3,
-      "date": 44694,
-      "transactionType": "DR",
-      "amount": -13875
-    },
-    {
-      "id": 4,
       "date": 44648,
       "transactionType": "CR",
       "amount": 450000
     },
     {
-      "id": 5,
+      "id": 3,
+      "date": 44671,
+      "transactionType": "DR",
+      "amount": -22232
+    },
+    {
+      "id": 4,
       "date": 44681,
       "transactionType": "CR",
       "amount": 300000
+    },
+    {
+      "id": 5,
+      "date": 44694,
+      "transactionType": "DR",
+      "amount": -13875
     },
     {
       "id": 6,
