@@ -23,7 +23,10 @@
 </head>
 <body>
     <div>
-        <input type="number" id="amount" placeholder="Amount" oninput="onchangeAmount()" value="300"/>
+        Time<input type="number" id="year" placeholder="Year" value="1" style="width: 50px;"/>
+        Rate<input type="number" id="rate" placeholder="Rate" value="11.75" style="width: 80px;"/>
+        Principle<input type="number" id="amount" placeholder="Amount" oninput="onchangeAmount()" value="300"/>
+        <button>Calculate</button>
         <div>YearlyInterest: <span id="yearyInterest"></span></div>
         <div>MonthlyInterest: <span id="monthlyInterest"></span></div>
         <div>dailyInterest: <span id="dailyInterest"></span></div>

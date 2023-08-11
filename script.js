@@ -1,4 +1,7 @@
 var contentDiv = document.getElementById("content");
+let ACCOUNT_BALANCE = 0;
+let ACCOUNT_STATEMENTS = [];
+const INTEREST_RATE = 10;
 const MONTHS = {
     JAN: 1,
     FEB: 2,
@@ -23,21 +26,17 @@ fetch('./data.json')
     let statements = json['Sheet1'].map(st => {
         return Object.assign(st, {date: st.date != null ? excelDateToJSDate(st.date) : ''}, {balance: 0})
     });
-    statements = processStatements(statements);
+    statements = getFullStatementsWithInterest(statements);
     console.log("PROCESSED_STATEMENTS: ", statements);
-
-    const tableData = generateTableData(statements);
+    
+    statements.forEach(st => doPayment(st));
+    const tableData = generateTableData(ACCOUNT_STATEMENTS);
     document.getElementById("content").innerHTML = tableData;
     
     
-    statements.forEach(element => {
-        //const dateStr = excelDateToJSDate(element.date);
-        //console.log("DATE: ", dateStr);
-        //document.getElementById("content").innerHTML = "hello";
-    });
 });
 
-function processStatements(statements) {
+function getFullStatementsWithInterest(statements) {
     console.log("processStatements...: ", statements);
     // initialize the opening balance
     statements[0].balance = statements[0].amount;
@@ -55,7 +54,7 @@ function processStatements(statements) {
                 "id": idCount,
                 "date": null,
                 "transactionType": "INTEREST",
-                "amount": 1234,
+                "amount": 0,
                 "balance": 999999
             };
             updatedStatemens.push(Object.assign(currStatement, {id: ++idCount}));
@@ -110,8 +109,8 @@ function onchangeAmount() {
     document.getElementById("monthlyInterest").innerHTML = monthlyInterest;
     document.getElementById("dailyInterest").innerHTML = dailyInterest;
 }
-function calculateInterest (principle, rate = 11.75) {
-    const time = 1;
+function calculateInterest (principle, rate = 11.75, t=1) {
+    const time = t ? t : 1;
     const simpleInterest = (principle * time *  rate) / 100;
     return simpleInterest;
 }
@@ -217,3 +216,34 @@ function generateTableData(statements){
             ${body}
         <table>`;
  } 
+
+ function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+ function doPayment(props) {
+    const {id, date, transactionType, amount} = props;
+    let interestOfTheMonth = 0;
+    if(transactionType === 'CR') {
+        ACCOUNT_BALANCE += amount;
+    } else if (transactionType === 'DR') {
+        ACCOUNT_BALANCE -= Math.abs(amount);
+    } else if (transactionType === 'INTEREST') {
+        const yearyInterest =  calculateInterest(ACCOUNT_BALANCE, 10);
+        const dailyInterest = yearyInterest / 360;
+        const days = 30;
+        interestOfTheMonth = dailyInterest * days;
+
+        ACCOUNT_BALANCE = ACCOUNT_BALANCE + interestOfTheMonth;
+    } else {
+
+    }
+    let balanceFormatted = ACCOUNT_BALANCE.toFixed(2);
+    ACCOUNT_STATEMENTS.push({
+        "id": id,
+        "date": date,
+        "transactionType": transactionType,
+        "amount": transactionType === 'INTEREST' ? numberWithCommas(interestOfTheMonth.toFixed(2)) : numberWithCommas(amount.toFixed(2)),
+        "balance": numberWithCommas(balanceFormatted)
+    });
+ }
